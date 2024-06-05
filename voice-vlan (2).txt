@@ -1,0 +1,29 @@
+! ====================
+! Cisco Switch Configuration
+! ====================
+
+enable
+configure terminal
+vlan 10
+name Data
+exit
+vlan 20
+name Voice
+exit
+
+interface range fa0/1-4
+switchport mode access
+switchport access vlan 10
+exit
+
+interface fa0/4
+switchport voice vlan 20
+exit
+exit
+
+! ====================
+! Config Verification
+! ====================
+
+show vlan brief
+
